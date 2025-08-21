@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga de datos simulada</title>
+</head>
+<body>
+    <h1>Usuarios Regsitrados</h1>
+    <button id="cargarUsuariosBtn">Cargar Usuarios</button>
+    <ul id="listaUsuarios"></ul>
+    <p id="mensajeCarga"></p>
+
+    <script>
+        document.getElementById('cargarUsuariosBtn').addEventListener('click', function(){
+            const mensajeCarga = document.getElementById('mensajeCarga');
+            const listaUsuarios = document.getElementById('listaUsuarios');
+            listaUsuarios.innerHTML = ''; // limpia la lista anterior
+            mensajeCarga.textContent = 'Cargando usuarios...';
+
+            //simulación de una llamada a una API (backend)
+            setTimeout(function(){
+                const datosUsuarios = [
+                    { id:1, nombre: 'Juan Perez'},
+                    { id:2, nombre:'María García'},
+                    { id:3, nombre: 'Carlos López'}
+                ];
+                console.log('Datos recibidos del "servidor":', datosUsuarios);
+                mensajeCarga.textContent = ''; // limpia mensaje de carga
+
+                datosUsuarios.forEach(function(usuario){
+                    const li = document.createElement('li');
+                    li.textContent = `ID: ${usuario.id}, Nombre: ${usuario.nombre}`;
+                    listaUsuarios.appendChild(li);
+                });
+            }, 2000); // simula el retraso de 2 segundos
+    });
+    </script>
+</body>
+</html>

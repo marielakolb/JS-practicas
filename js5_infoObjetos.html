@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detslle de Productos - Objeto</title>
+</head>
+<body>
+    <div id="infoProducto">
+        <h2>Detalles del Producto</h2>
+        <p>Nombre: <span id="nombreProducto"></span></p>
+        <p>Precio: $<span id="precioProducto"></span></p>
+        <p>Disponible: <span id="disponibleProducto"></span></p>
+    </div>
+    
+    <script>
+        const producto = {
+            nombre:'Teclado Mecánico',
+            precio: 75.99,
+            disponible: true
+        };
+        function mostrarProducto(prod){
+            document.getElementById('nombreProducto').textContent = prod.nombre;
+            document.getElementById('precioProducto').textContent= prod.precio.toFixed(2);
+            document.getElementById('disponibleProducto').textContent = prod.disponible ? 'Si':'No';
+        }
+        mostrarProducto(producto);
+    </script>
+</body>
+</html>

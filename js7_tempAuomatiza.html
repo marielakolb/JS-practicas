@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador de Automatización</title>
+    <style>
+        img {
+            max-width: 400px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mi Galería de Fotos</h1>
+    <img src="https://picsum.photos/400/300?random=1" alt="Imagen de galería" id="galeriaImg">
+    
+    <script>
+        //se asigna 4 imágenes a la variable imagenes de tipo array
+        const imagenes = [
+            'https://picsum.photos/400/300?random=1',
+            'https://picsum.photos/400/300?random=2',
+            'https://picsum.photos/400/300?random=3',
+            'https://picsum.photos/400/300?random=4',
+        ];
+        let indiceActual = 0;
+        const galeriaImg = document.getElementById('galeriaImg');
+
+        setInterval (function(){
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            //aquí va asignándose la ruta de la imagen (almacenada en el array de imágenes) a mostrarse
+            galeriaImg.src = imagenes[indiceActual];
+        }, 3000); // cambia la imagen a mostrarse cada 3 segundos
+    </script>
+</body>
+</html>

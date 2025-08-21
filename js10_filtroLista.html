@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrado de Lista</title>
+</head>
+<body>
+    <h1>Buscador de Frutas</h1>
+    <input type="text" id="filtroFrutasInput" placeholder="Buscar fruta...">
+    <button id="filtrarBtn">Filtrar</button>
+    <ul id="listaFrutas"></ul>
+
+    <script>
+        const todasLasFrutas = ['Manzana', 'Banana', 'Cereza', 'Durazno', 'Naranja', 'Pera', 'Uva', 'Kiwi'];
+        const listaFrutasUL = document.getElementById('listaFrutas');
+        const filtroInput = document.getElementById('filtroFrutasInput');
+        const filtrarBtn = document.getElementById('filtrarBtn');
+
+        //función para renderizar la lista
+        function renderizarLista(frutasARenderizar){
+            listaFrutasUL.innerHTML = ''; //limpiar la lista actual
+            if (frutasARenderizar.length === 0){
+                const li=document.createElement('li');
+                li.textContent = 'No se encontraron frutas.';
+                listaFrutasUL.appendChild(li);
+                return;
+            }
+            frutasARenderizar.forEach(function(fruta){
+                const li = document.createElement('li');
+                li.textContent = fruta;
+                listaFrutasUL.appendChild(li);
+            });
+        }
+        //inicialmente, renderizar todas las frutas
+        renderizarLista(todasLasFrutas);
+        filtrarBtn.addEventListener('click', function(){
+            const textoFiltro = filtroInput.value.toLowerCase().trim();
+            let frutasFiltradas = todasLasFrutas;
+
+            if (textoFiltro !== ''){
+                frutasFiltradas = todasLasFrutas.filter(function(fruta){
+                    return fruta.toLocaleLowerCase().includes(textoFiltro);
+                });
+            }
+            renderizarLista(frutasFiltradas);
+        });
+        
+        //OPCIONAL, filtrar mientras se escribe (sin botón)
+        filtroInput.addEventListener('keyup', function(){
+            const textoFiltro = filtroInput.value.toLocaleLowerCase().trim();
+            let frutasFiltradas = todasLasFrutas;
+
+            if (textoFiltro !== ''){
+                frutasFiltradas = todasLasFrutas.filter(function(fruta){
+                    return fruta.toLowerCase().includes(textoFiltro);
+                });
+            }
+            renderizarLista(frutasFiltradas);
+        });
+    </script>
+</body>
+</html>

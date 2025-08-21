@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Modos de Color (claro/oscuro)</title>
+    <style>
+        body.claro{
+            background-color: #ffffff;
+            color:#333333;
+        }
+        body.oscuro{
+            background-color: #333333;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="claro">
+    <h1>Mi sitio Web</h1>
+    <p>Este es un ejemplo de contenido.</p>
+    <button id="temaBtn">Cambiar Tema</button>
+
+    <script>
+        document.getElementById('temaBtn').addEventListener('click', function(){
+            document.body.classList.toggle('oscuro');
+            document.body.classList.toggle('claro');
+        });
+    </script>
+</body>
+</html>

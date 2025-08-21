@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Dinámica</title>
+</head>
+<body>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border:1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th{
+            background-color: #f2f2f2;
+        }
+    </style>
+    <h1>Catálogo de Libros</h1>
+    <div id="contenedorTabla"></div>
+
+    <script>
+        const libros =[
+            {titulo:'Cien años de soledad', autor: 'Gabriel García Márquez', año: 1967},
+            {titulo:'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', año: 1605},
+            {titulo:'El Principito', autor: 'Antoine de Saint-Exupéry', año: 1943}
+        ];
+
+        const contenedorTabla = document.getElementById('contenedorTabla');
+        const Tabla = document.createElement('table');
+        //crear encabezado de la tabla
+        const thead = document.createElement('thead');
+        const trHeader = document.createElement('tr');
+        ['Título', 'Autor', 'Año'].forEach(function (headerText){
+            const th = document.createElement('th');
+            th.textContent = headerText;
+            trHeader.appendChild(th);
+        });
+        thead.appendChild(trHeader);
+        Tabla.appendChild(thead);
+
+        //crear cuerpo de la tabla
+        const tbody =document.createElement('tbody');
+        libros.forEach(function(libro){
+            const tr = document.createElement('tr');
+            for (const key in libro) {
+                const td = document.createElement('td');
+                td.textContent = libro[key];
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        });
+        Tabla.appendChild(tbody);
+        contenedorTabla.appendChild(tbody);
+    </script>
+</body>
+</html>

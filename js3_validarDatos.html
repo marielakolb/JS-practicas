@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar datos de usuario</title>
+    <style>
+        .error{
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <form id="registroForm">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+        <div id="emailError" class="error"></div><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        //validar datos de campos de un formulario
+        document.getElementById('registroForm').addEventListener('submit', function(event){
+            event.preventDefault(); //evita el envío del formulario por defecto
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailValue = emailInput.value;
+
+            emailError.textContent = ''; //limpia mensajes de error previos
+
+            if (emailValue.trim() === '') {
+                emailError.textContent = 'El campo email no puede estar vacío';
+            }else if (!emailValue.includes('@')) {
+                emailError.textContent = 'El mail debe contener un @';
+            }else{
+                alert('Formulario enviado con éxito (simulado)!');
+                //aquí, en un sitio real, se enviaría el formulario al servidor.
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Elementos (DOM)</title>
+</head>
+<body>
+    <h1>Mis frutas favoritas: </h1>
+    <ul id="listarFrutas">
+
+    </ul>
+
+    <script>
+        //crea un bucle para listar las frutas almacenadas en un array
+        const frutas = ['Manzana', 'Banana', 'Cereza', 'Durazno', 'Mora'];
+        const listaFrutas = document.getElementById('listarFrutas');
+
+        frutas.forEach(function(fruta) {
+            const li = document.createElement('li');
+            li.textContent = fruta;
+            listaFrutas.appendChild(li);
+        });
+    </script>
+</body>
+</html>
