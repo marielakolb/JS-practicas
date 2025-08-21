@@ -1,3 +1,4 @@
+# Se adjuntan las soluciones de los ejercicios de JavaScript, detallados a continuación...
 ## CONSIGNA
 1. Cambiar contenido de un elemento: Introducir la manipulación del Document Object Model (DOM) para cambiar el contenido de un elemento HTML. Contexto en un sitio web dinámico: En un sitio real, podrías querer actualizar un mensaje de bienvenida, el estado de un pedido o un contador de notificaciones sin recargar la página. Crea un archivo HTML
 con un párrafo (\<p\>) que contenga el texto \"Hola, mundo!\". Añade un botón. Cuando se haga clic en el botón, el texto del párrafo debe  cambiar a \"¡Bienvenido/a a mi sitio web!\".
